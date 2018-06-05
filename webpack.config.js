@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    app: './src/Practice/destructuring.js',
+    app: './src/Practice/Redux.js',
   },
   devtool: 'cheap-module-eval-source-map',
   devServer: {
