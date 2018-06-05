@@ -48,3 +48,18 @@ console.log(publisherName);
 // Array Destructuring
 //======================
 const address = ['blk473D', 'Upper Serangoon Crescent', '538473'];
+
+// Match by POSITION and not name
+const [, , zip='123456'] = address;
+/* Note: 
+
+* Put comma but not variable Name if we do not want to destructure the item in that position
+* Can set default too like object destructuring
+ */
+console.log(`You are in ${zip}`);
+
+const item = ['Coffee (hot)', '$2.30', '$2.50', '$2.75'];
+
+const [coffee, , mediumPrice] = item;
+
+console.log(`A medium ${coffee} costs ${mediumPrice}`);
