@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    app: './src/app.js',
+    app: './src/Practice/hoc.js',
   },
   devtool: 'cheap-module-eval-source-map',
   devServer: {
