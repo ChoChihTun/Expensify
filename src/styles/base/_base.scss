@@ -19,3 +19,8 @@ button:disabled {
 .is-active {
   font-weight: bold;
 }
+
+// Get the date range picker arrow to show
+.DateRangePickerInput_arrow {
+  margin: 0 20px;
+}
