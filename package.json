@@ -6,6 +6,7 @@
   "dependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "css-loader": "^0.28.11",
+    "jest": "^23.1.0",
     "live-server": "^1.2.0",
     "moment": "^2.22.2",
     "node-sass": "^4.9.0",
@@ -34,9 +35,9 @@
     "webpack-cli": "^3.0.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --open",
-    "dev-server": "webpack-dev-server"
+    "dev-server": "webpack-dev-server",
+    "test": "jest"
   },
   "author": "Chih Tun",
   "license": "ISC",
