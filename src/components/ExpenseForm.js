@@ -1,10 +1,17 @@
 import React from 'react';
+import moment from 'moment';
+import 'react-dates/initialize';
+import { SingleDatePicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
 
 export default class ExpenseForm extends React.Component {
   state = {
     description: '',
     note: '',
-    amount: ''
+    amount: '',
+    createdAt: moment(),
+    calendarFocused: false,
+    error: ''
   }
 
   onDescriptionChange = (e) => {
@@ -19,19 +26,57 @@ export default class ExpenseForm extends React.Component {
 
   onAmountChange = (e) => {
     const amount = e.target.value;
-    if (amount.match(/^\d*(\.\d{0,2})?$/)) {
+    // d{1,} --> First half MUST be 1 to infinity (cannot start with a dot)
+    // !amount allows user to clear the input
+    if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
       this.setState(() => ({ amount }));
-    } else {
-
     }
   }
+
+  onDateChange = (createdAt) => {
+    if (createdAt) { // Prevents User from clearing the value --> Can only change by clicking the date
+      this.setState(() => ({ createdAt }));
+    }
+  };
+
+  // focused is an object so we destructure to get its value
+  onFocusChange = ({focused}) => {
+    this.setState(() => ({ calendarFocused: focused }))
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault(); // Prevent full page refresh
+
+    // Make sure there is description and amount
+    if (!this.state.description || !this.state.amount) {
+      // Set error state
+      this.setState(() => ({ error: 'Please provide description and amount!'}));
+    } else {
+      this.setState(() => ({ error: '' }));
+      this.props.onSubmit({
+        description: this.state.description,
+        amount: parseFloat(this.state.amount, 10) * 100, //Parse string amount into numerical amount
+        createdAt: this.state.createdAt.valueOf(),
+        note: this.state.note
+      })
+    }
+  };
 
   render() {
     return (
       <div>
-        <form>
+        {this.state.error && <p>{this.state.error}</p>}
+        <form onSubmit={this.onSubmit}>
           <input text='text' placeholder='Description' autoFocus value={this.state.description} onChange={this.onDescriptionChange}/>
           <input type='text' placeholder="Amount" value={this.state.amount} onChange={this.onAmountChange} />
+          <SingleDatePicker
+            date={this.state.createdAt}
+            onDateChange={this.onDateChange}
+            focused={this.state.calendarFocused}
+            onFocusChange={this.onFocusChange}
+            numberOfMonths={1 /*Show 1 month when click*/}
+            isOutsideRange={() => false /* Make all the dates available */}
+          />
           <textarea placeholder='Add a note for your response (Optional)' value={this.state.note} onChange={this.onNoteChange}></textarea>
           <button>Add Expense</button>
         </form>
