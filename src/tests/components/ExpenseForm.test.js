@@ -93,13 +93,16 @@ test('should set new date on date change', () => {
   const wrapper = shallow(<ExpenseForm />);
   // prop(KEY). Key is the key value pair in the tag
   // <SingleDatePicker onDateChange={this.onDateChange}
-  wrapper.find('SingleDatePicker').prop('onDateChange')(now);
+  // use withStyles to find pickers as enzyme doesn't register the pickers in react-dates
+  wrapper.find('withStyles(SingleDatePicker)').prop('onDateChange')(now);
   expect(wrapper.state('createdAt')).toEqual(now);
 });
 
 test('should set calendar focus on change', () => {
-  const focus = true;
+  const focused = true;
   const wrapper = shallow(<ExpenseForm />);
-  wrapper.find('SingleDatePicker').prop('onFocusChange')({ focus });
-  expect(wrapper.state('calendarFocused')).toBe(focus);
+  wrapper.find('withStyles(SingleDatePicker)').prop('onFocusChange')({
+    focused
+  });
+  expect(wrapper.state('calendarFocused')).toBe(focused);
 });

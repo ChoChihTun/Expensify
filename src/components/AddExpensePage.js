@@ -3,17 +3,29 @@ import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 import { addExpense } from '../actions/expenses';
 
-const AddExpensePage = (props) => (
-  <div>
-    <h1>Add Expense</h1>
-    <ExpenseForm 
-      onSubmit={(expense) => {
-        // Connect and update the redux store
-        props.dispatch(addExpense(expense));
-        props.history.push('/'); // Switch page using browser routing --> No full page reload
-      }}
-    />
-  </div>
-);
+export class AddExpensePage extends React.Component {
+  onSubmit = (expense) => {
+    // Connect and update the redux store
+    // props.dispatch(addExpense(expense));
+    this.props.addExpense(expense);
+    this.props.history.push('/'); // Switch page using browser routing --> No full page reload
+  };
+  render() {
+    return (
+      <div>
+        <h1>Add Expense</h1>
+        <ExpenseForm 
+          onSubmit={this.onSubmit}
+        />
+      </div>
+    )
+  }
+}
 
-export default connect()(AddExpensePage);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addExpense: (expense) => dispatch(addExpense(expense))
+  };
+}
+
+export default connect(undefined, mapDispatchToProps)(AddExpensePage);
