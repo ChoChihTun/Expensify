@@ -36,7 +36,7 @@ export default (state = filtersReducerDefaultState, action) => {
         endDate: action.date
       }
 
-    default:
+    default: // same as case '@@INIT'
       return state;
   };
 };
