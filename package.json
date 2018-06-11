@@ -40,7 +40,9 @@
     "webpack-cli": "^3.0.2"
   },
   "scripts": {
-    "build": "webpack --open",
+    "build:dev": "webpack",
+    "build:prod": "webpack -p --env production",
+    "serve": "live-server public/",
     "dev-server": "webpack-dev-server",
     "test": "jest --config=jest.config.json"
   },
