@@ -19,19 +19,12 @@
     "react-modal": "^3.4.5",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
-    "react-test-renderer": "^16.4.0",
     "redux": "^4.0.0",
     "sass-loader": "^7.0.2",
     "style-loader": "^0.21.0",
     "uuid": "^3.2.1",
     "webpack": "^4.10.2",
-    "webpack-dev-server": "^3.1.4"
-  },
-  "devDependencies": {
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "enzyme-to-json": "^3.3.4",
-    "jest": "^23.1.0",
+    "webpack-dev-server": "^3.1.4",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
@@ -39,6 +32,14 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "webpack-cli": "^3.0.2"
+  },
+  "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
+    "jest": "^23.1.0",
+    "react-test-renderer": "^16.4.0",
+    "webpack-dev-server": "^3.1.4"
   },
   "scripts": {
     "build:dev": "webpack",
