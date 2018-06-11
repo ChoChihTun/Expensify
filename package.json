@@ -6,13 +6,8 @@
   "dependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "css-loader": "^0.28.11",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "enzyme-to-json": "^3.3.4",
     "express": "^4.16.3",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "jest": "^23.1.0",
-    "live-server": "^1.2.0",
     "moment": "^2.22.2",
     "node-sass": "^4.9.0",
     "normalize.css": "^8.0.0",
@@ -33,6 +28,10 @@
     "webpack-dev-server": "^3.1.4"
   },
   "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
+    "jest": "^23.1.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
@@ -44,7 +43,6 @@
   "scripts": {
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
-    "serve": "live-server public/",
     "dev-server": "webpack-dev-server",
     "test": "jest --config=jest.config.json",
     "start": "node server/server.js",
