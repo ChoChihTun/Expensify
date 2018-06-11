@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = (env) => {
+  // Must run -p --env production in package.json
   const isProduction = env === 'production';
 
   return {
