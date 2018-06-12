@@ -16,7 +16,9 @@ firebase.initializeApp(config);
 
 const database = firebase.database();
 
-database.ref('expenses').on('child_removed', (snapshot) => {
+export { firebase, database as default };
+
+/* database.ref('expenses').on('child_removed', (snapshot) => {
   console.log(snapshot.key, snapshot.val());
 });
 
@@ -26,7 +28,7 @@ database.ref('expenses').on('child_changed', (snapshot) => {
 
 database.ref('expenses').on('child_added', (snapshot) => {
   console.log(snapshot.key, snapshot.val());
-});
+}); */
 
 /* database.ref('expenses')
   .on('value', (snapshot) => {

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
-import { addExpense } from './actions/expenses';
+import { startAddExpense } from './actions/expenses';
 import { setTextFilter } from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
 import 'normalize.css/normalize.css';
@@ -19,9 +19,9 @@ store.subscribe(() => {
   console.log(visibleExpenses);
 });
 
-store.dispatch(addExpense({ description: 'Water bill', amount: 4500 }));
-store.dispatch(addExpense({ description: 'Gas bill ', createdAt: 1000 }));
-store.dispatch(addExpense({ description: 'Rent', amount: 109500 }));
+store.dispatch(startAddExpense({ description: 'Water bill', amount: 4500 }));
+store.dispatch(startAddExpense({ description: 'Gas bill ', createdAt: 1000 }));
+store.dispatch(startAddExpense({ description: 'Rent', amount: 109500 }));
 
 // Provider's store is the name of our store
 const jsx = (
