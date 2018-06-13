@@ -7,6 +7,7 @@ export default class ExpenseForm extends React.Component {
   constructor(props) {
     super(props);
 
+    // Create the state of expense here and any changes will reflect here
     this.state = {
       description: props.expense ? props.expense.description : '',
       note: props.expense ? props.expense.note : '',
@@ -56,6 +57,8 @@ export default class ExpenseForm extends React.Component {
       this.setState(() => ({ error: 'Please provide description and amount!'}));
     } else {
       this.setState(() => ({ error: '' }));
+
+      // This onSubmit is from EditExpensePage, it contains startEdtiExpense action
       this.props.onSubmit({
         description: this.state.description,
         amount: parseFloat(this.state.amount, 10) * 100, //Parse string amount into numerical amount
