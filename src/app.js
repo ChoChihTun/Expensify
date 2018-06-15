@@ -33,6 +33,7 @@ store.dispatch(startSetExpenses()).then(() => {
   ReactDOM.render(jsx, document.getElementById('app'));
 });
 
+
 // Call when user goes from authenticated to unauthenticated or vice versa
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
