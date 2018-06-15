@@ -2,8 +2,16 @@
   padding: $s-size;
   background: $blue;
   color: white;
+  display: inline-block; // So that vertical padding and margin gets taken into effect
   border: none;
   border: 1px solid darken($blue, 5%);
   font-weight: 300;
   font-size: $font-size-large;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.button--link {
+  border: none;
+  background: none;
 }
