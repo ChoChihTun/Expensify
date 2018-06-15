@@ -1,0 +1,9 @@
+.button {
+  padding: $s-size;
+  background: $blue;
+  color: white;
+  border: none;
+  border: 1px solid darken($blue, 5%);
+  font-weight: 300;
+  font-size: $font-size-large;
+}
