@@ -15,3 +15,8 @@
   border: none;
   background: none;
 }
+
+.button--secondary {
+  background: #888888;
+  border: 1px solid darken(#888888, 5%);
+}

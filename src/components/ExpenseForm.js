@@ -70,23 +70,26 @@ export default class ExpenseForm extends React.Component {
 
   render() {
     return (
-      <div>
-        {this.state.error && <p>{this.state.error}</p>}
-        <form onSubmit={this.onSubmit}>
-          <input text='text' placeholder='Description' autoFocus value={this.state.description} onChange={this.onDescriptionChange}/>
-          <input type='text' placeholder="Amount" value={this.state.amount} onChange={this.onAmountChange} />
-          <SingleDatePicker
-            date={this.state.createdAt}
-            onDateChange={this.onDateChange}
-            focused={this.state.calendarFocused}
-            onFocusChange={this.onFocusChange}
-            numberOfMonths={1 /*Show 1 month when click*/}
-            isOutsideRange={() => false /* Make all the dates available */}
-          />
-          <textarea placeholder='Add a note for your response (Optional)' value={this.state.note} onChange={this.onNoteChange}></textarea>
-          <button>Add Expense</button>
-        </form>
-      </div>
+      <form className='form' onSubmit={this.onSubmit}>
+        {this.state.error && <p className='form__error'>{this.state.error}</p>}
+
+        <input className='text-input' text='text' placeholder='Description' autoFocus value={this.state.description} onChange={this.onDescriptionChange}/>
+        <input className='text-input' type='text' placeholder="Amount" value={this.state.amount} onChange={this.onAmountChange} />
+        <SingleDatePicker
+          date={this.state.createdAt}
+          onDateChange={this.onDateChange}
+          focused={this.state.calendarFocused}
+          onFocusChange={this.onFocusChange}
+          numberOfMonths={1 /*Show 1 month when click*/}
+          isOutsideRange={() => false /* Make all the dates available */}
+        />
+        <textarea className='textarea' placeholder='Add a note for your response (Optional)' value={this.state.note} onChange={this.onNoteChange}></textarea>
+
+{/*Put isnside div so button not affected by >* in .form class style */}        
+        <div> 
+          <button className='button'>Save Expense</button>   
+        </div>
+      </form>
     )
   }
 }

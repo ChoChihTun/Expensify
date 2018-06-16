@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box; // Set total height = height specified = content + padding + margin. Normally the total height = height specified + padding + margin
+}
+
 html {
   font-size: 62.5%;
 }
