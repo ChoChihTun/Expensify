@@ -9,6 +9,13 @@
   }
 }
 
+.list-body {
+  margin-bottom: $m-size;
+  @media (min-width: $desktop-breakpoint) {
+    margin-bottom: $l-size;
+  }
+}
+
 .input-group__item {
   margin-bottom: $s-size;
   margin-right: $s-size;
