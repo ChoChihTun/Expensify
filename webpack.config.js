@@ -17,9 +17,9 @@ module.exports = (env) => {
   const CSSExtract = new ExtractTextPlugin('styles.css');
 
   return {
-    entry: {
-      app: './src/app.js',
-    },
+    entry: [
+      'babel-polyfill', './src/app.js',
+    ],
     // Different source map for dev & prod
     devtool: isProduction ? 'source-map' : 'inline-source-map',
     devServer: {
