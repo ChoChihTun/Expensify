@@ -5,7 +5,7 @@ import { Route, Redirect } from 'react-router-dom';
 
 export const PrivateRoute = ({
   isAuthenticated,
-  component: Component, //cmponent is passed from AppRouter
+  component: Component, //component is passed from AppRouter
   ...rest //Destructure rest of the things that are not destructure
 }) => (
   <Route {...rest} component={(props) => (
